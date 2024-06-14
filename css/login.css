@@ -1,0 +1,167 @@
+body {
+  background-color: #121212;
+  color: #fff;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.container {
+  padding-top: 0px;
+}
+
+fieldset {
+  margin-bottom: 20px;
+  border: 1px solid #3f3f3f;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.bubble {
+  background-color: #282828;
+  border-radius: 7px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.bubbleH {
+  background-color: #282828;
+  border-radius: 7px;
+  padding: 20px;
+  margin: 20px 0px 10px 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  font-weight: bold;
+  color: #fff;
+}
+.form-control {
+  background-color: #282828;
+  border-color: #282828;
+  color: #fff;
+}
+.form-control:focus {
+  border-color: #282828;
+  background-color: #282828;
+  color: #fff;
+}
+
+.placesearch {
+  background-color: #ffffff;
+}
+.placesearch:focus {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.btn {
+  background-color: #a688fa;
+  border-color: #a688fa;
+  color: #000000;
+}
+.btn:hover {
+  background-color: #372e4c;
+  border-color: #372e4c;
+  color: #fff;
+}
+
+.me-2 {
+  background-color: #fffefe;
+  border-color: #ffffff;
+  color: #fff;
+}
+
+.body {
+  padding-top: 100px;
+}
+
+/* Cambiar el color del placeholder del campo de correo */
+#correo::placeholder {
+  color: #999; /* Puedes ajustar el color según tus preferencias */
+}
+
+.bg-dark {
+  background-color: #121212 !important;
+  border-color: #282828 !important;
+}
+
+
+img {
+  border-color: #121212;
+}
+
+.data {
+  margin-bottom: 20px;
+  border: 1px solid #3f3f3f;
+  border-radius: 6px;
+  padding: 20px 20px 0px 20px;
+}
+
+.acount {
+  margin-left: -10px;
+}
+
+.php {
+  background-color: #282828;
+  border-radius: 7px;
+  padding: 20px;
+  font-size: 17px;
+}
+
+.gender {
+  margin-top: 20px;
+  height: 75px;
+}
+
+.formulario__validacion {
+	opacity: 0;
+}
+
+.formulario__mensaje-exito {
+	height: 45px;
+	line-height: 45px;
+	background: #283f25;
+	padding: 0 15px;
+	border-radius: 3px;
+	display: none;
+}
+
+.formulario__mensaje {
+  height: 45px;
+  line-height: 45px;
+  background: #F66060;
+  padding: 0 15px;
+  border-radius: 3px;
+  display: none;
+}
+
+.formulario__mensaje-exito-activo {
+	display: block;
+}
+
+
+.formulario__mensaje-activo {
+	display: block;
+}
+
+.formulario__grupo-btn-enviar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario_correcto .formulario__validacion {
+	color: #66c96e;
+	opacity: 1;
+}
+
+.formulario_incorrecto .formulario__validacion {
+	color: rgb(214, 113, 113);
+	opacity: 1;
+}
