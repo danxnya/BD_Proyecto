@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos PostgreSQL
-$config = include("config.php");
+$config = include("/config.php");
 $host = $config['db_host'];
 $user = $config['db_user'];
 $password = $config['db_password'];
@@ -22,26 +22,17 @@ try {
 // Verificar si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
-    $nombre = $_POST['nombre'];
-    $apellido_paterno = $_POST['apellido_paterno'];
-    $apellido_materno = $_POST['apellido_materno'];
-    $telefono =$_POST['telefono'];
     $contrasena =$_POST['contrasena'];
-    $direccion = $_POST['direccion'];
 
     // Preparar la inserción de datos
-    $sql = "INSERT INTO persona (correo, contrasena, nombre, apellido_paterno, apellido_materno, telefono, direccion) VALUES (:correo, :contrasena, :nombre, :apellido_paterno, :apellido_materno, :telefono, :direccion)";
+    if ($correo == "admin@ipn.mx" && $contrasena == "admin") {
+        header("Location: /BD_Proyecto/php/CRUD/testt.php");
+    } else {
+        header("Location: index.php");
+    }
 
     $stmt = $conn->prepare($sql);
 
-    // Vincular parámetros a la consulta
-    $stmt->bindParam(':correo', $correo);
-    $stmt->bindParam(':nombre', $nombre);
-    $stmt->bindParam(':apellido_paterno', $apellido_paterno);
-    $stmt->bindParam(':apellido_materno', $apellido_materno);
-    $stmt->bindParam(':telefono', $telefono); // Vincular como entero
-    $stmt->bindParam(':contrasena', $contrasena);
-    $stmt->bindParam(':direccion', $direccion);
 
     // Ejecutar la consulta
     if ($stmt->execute()) {

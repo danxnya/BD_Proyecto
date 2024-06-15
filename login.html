@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -98,6 +98,11 @@
                 <i class="formulario__validacion bi bi-x-circle-fill"></i>
                 <input type="email" class="form-control" name="correo" id="correo" placeholder="name@mail.com"required />
             </div>
+            <div class="formulario_campo form-group" id="formulario_contrasena">
+              <label for="contrasena" class="form-label">Contraseña: </label>
+              <i class="formulario__validacion bi bi-x-circle-fill"></i>
+              <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Pon al menos un caracter especial"required />
+          </div>
             <div class="formulario_campo form-group" id="formulario_nombre">
               <label for="nombre">Nombre:</label>
               <i class="formulario__validacion bi bi-x-circle-fill"></i>
@@ -117,8 +122,14 @@
               <label for="telefono">Telefono:</label>
               <i class="formulario__validacion bi bi-x-circle-fill"></i>
               <input type="number" class="form-control" name="telefono" id="telefono" required />
-            </div>
 
+            </div>
+            <div class="formulario_campo form-group" id="formulario_direccion">
+              <label for="direccion" class="form-label">Direccion: </label>
+              <i class="formulario__validacion bi bi-x-circle-fill"></i>
+              <input type="direccion" class="form-control" name="direccion" id="direccion" placeholder="Municipio, calle, cp"required />
+          </div>
+          
             <input type="submit" class="btn btn-primary" value="Enviar" />
             <input type="reset" class="btn btn-secondary" value="Limpiar" />
             <input type="reset" class="btn btn-secondary" value="Generar PDF" />
@@ -138,7 +149,7 @@
 
   <footer class="footer mt-auto py-3 bg-dark">
     <div class="container text-center">
-      <span class="text-muted" style="color: #999 !important">© 2024 Gian, Damian, Alexis. Base de datos 3CV1.</span>
+      <span class="text-muted" style="color: #999 !important">© 2024 Mi Sitio Web</span>
     </div>
   </footer>
 

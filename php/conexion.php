@@ -20,11 +20,11 @@ class Conexion {
 
     public static function consultaTest() {
         $conn = self::ConexionBD();
-        $sql = 'SELECT * FROM persona';  // Reemplaza 'tu_tabla' con el nombre de tu tabla
+        $sql = 'SELECT * FROM persona';  
         try {
             $stmt = $conn->query($sql);
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo $row['correo'] . "<br/>";  // Reemplaza 'tu_columna' con el nombre de tu columna
+                echo $row['correo'] . "<br/>";  
             }
         } catch (PDOException $e) {
             echo "Error en la consulta: " . $e->getMessage();
