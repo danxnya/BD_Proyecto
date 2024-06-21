@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"/>
+    <!-- Custom CSS -->
+          <link rel="stylesheet" href="/BD_Proyecto/css/mystyle.css" />
+  </head>
+
+  <body>
+    <!-- Barra de navegacion-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <!-- Icono del lado izquierdo -->
+        <img
+          class="logo"
+          src="/BD_Proyecto/img/logo.png"
+          alt="Logo Pagina"
+          title="Mio"
+          width=""
+          height="70px"
+        />
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                style="color: #ffffff"
+                class="nav-link"
+                aria-current="page"
+                href="/BD_Proyecto/index.html"
+                ><i class="bi bi-house-door-fill"></i> Inicio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a style="color: #ffffff" class="nav-link" href="/BD_Proyecto/login.html"
+                ><i class="bi bi-person-fill"></i> Ingresar</a
+              >
+              <!-- Cambiar de pagina para log in -->
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                style="color: #ffffff"
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                ><i class="bi bi-paperclip"></i> Paginas Oficiales</a
+              >
+              <ul style="background-color: #121212" class="dropdown-menu">
+                <li style="background-color: #121212">
+                  <a
+                    style="color: #952f57"
+                    class="dropdown-item"
+                    href="https://www.ipn.mx/"
+                    target="_blank"
+                    >IPN<img
+                      src="/BD_Proyecto/img/IPN_logo.png"
+                      alt="logoipn"
+                      title="IPN"
+                      width=""
+                      height="30px"
+                  /></a>
+                </li>
+                <li style="background-color: #525252">
+                  <hr class="dropdown-divider" />
+                </li>
+                <li style="background-color: #121212">
+                  <a
+                    style="color: rgb(64, 98, 150)"
+                    class="dropdown-item"
+                    href="https://www.escom.ipn.mx/"
+                    target="_blank"
+                    >ESCOM
+                    <img
+                      src="/BD_Proyecto/img/ESCOM_logo.png"
+                      title="ESCOM"
+                      alt="logoescom"
+                      width=""
+                      height="20px"
+                  /></a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                style="color: #ffffff"
+                class="nav-link"
+                href="/BD_Proyecto/creditos.html"
+                ><i class="bi bi-mortarboard-fill"></i> Creditos</a
+              >
+            </li>
+          </ul>
+          <img
+            style="margin-right: 20px; margin-left: 9px"
+            src="/BD_Proyecto/img/logo-escom.png"
+            alt="Logo Pagina"
+            title="ESCOM_Nombre"
+            width=""
+            height="70px"
+          />
+          <img
+            style="margin-right: 20px; margin-left: 9px"
+            src="/BD_Proyecto/img/logo-ipn.png"
+            alt="Logo Pagina"
+            title="ESCOM_Nombre"
+            width=""
+            height="70px"
+          />
+        </div>
+      </div>
+    </nav>
+
+    <!-- Título -->
+    <nav class="navbar navbar-dark bg">
+      <div class="container-fluid title-border">
+        <span
+          class="navbar-brand mb-0 h1 text-center w-100"
+          style="margin-top: 100px; height: 50px; font-size: 25px"
+          >Portal de Registros - IPN</span
+        >
+      </div>
+    </nav>
+
+    <div class="container body">
+      <div class="row">
+        <div class="container admin-panel">
+          <h2>Panel de Administración</h2>
+          <form method="POST" action="/BD_Proyecto/php/admin.php">
+            <div class="form-group">
+              <label for="action">Acción:</label>
+              <select class="form-control" id="action" name="action">
+                <option value="create">Crear nuevo registro</option>
+                <option value="update">Actualizar registro existente***</option>
+                <option value="delete">Eliminar registro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="table">Tabla:</label>
+              <select class="form-control" id="table" name="table">
+                <option value="usuarios">Usuarios</option>
+                <option value="productos">Datos Personales***</option>
+                <option value="pedidos">Tutores***</option>
+              </select>
+            </div>
+            <div id="form-fields" class="row justify-content-center"></div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer py-3 bg-dark">
+      <div class="container text-center">
+        <span class="text-muted" style="color: #999 !important"
+          >© 2024 Mi Sitio Web</span
+        >
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+
+    <!-- Script para campos dinámicos -->
+    <script>
+    document.getElementById('action').addEventListener('change', function() {
+        var action = this.value;
+        var formFields = document.getElementById('form-fields');
+        formFields.innerHTML = ''; // Limpiar campos anteriores
+
+        if (action === 'create' || action === 'update') {
+            formFields.innerHTML += `
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" class="form-control" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono" required>
+                </div>
+            `;
+            if (action === 'update') {
+                formFields.innerHTML += `
+                    <div class="form-group">
+                        <label for="id">ID:</label>
+                        <input type="text" class="form-control" id="id" name="id" required>
+                    </div>
+                `;
+            }
+        } else if (action === 'delete') {
+            formFields.innerHTML += `
+                <div class="form-group">
+                    <label for="id">ID:</label>
+                    <input type="text" class="form-control" id="id" name="id" required>
+                </div>
+            `;
+        }
+    });
+    </script>
+  </body>
+</html>

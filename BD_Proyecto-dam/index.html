@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gimnasio Fitness Pro</title>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/BD_Proyecto/css/mystyle.css"/>
+</head>
+
+<body>
+  <!-- Barra de navegación-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <!-- Icono del lado izquierdo -->
+      <img class="logo" src="/BD_Proyecto/img/logo.png" alt="Logo Pagina" title="Mio" height="70px">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/BD_Proyecto/index.html"><i class="bi bi-house-door-fill"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/BD_Proyecto/login.html"><i class="bi bi-person-fill"></i> Ingresar</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/BD_Proyecto/creditos.html"><i class="bi bi-mortarboard-fill"></i>
+              Creditos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/BD_Proyecto/cursos.html"><i class="bi bi-person-plus-fill"></i> Cursos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/BD_Proyecto/contacto.html"><i class="bi bi-telephone-fill"></i> Contacto</a>
+            </li>
+        </ul>
+        <img src="/BD_Proyecto/img/logo-ipn.png" alt="Logo Pagina" title="ESCOM_Nombre" height="60px">
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carrusel de imágenes -->
+  <div class="container mt-5 pt-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/BD_Proyecto/img/car1.jpg" class="d-block w-100" alt="Fitness Class">
+        </div>
+        <div class="carousel-item">
+          <img src="/BD_Proyecto/img/car2.jpg" class="d-block w-100" alt="Weight Lifting">
+        </div>
+        <div class="carousel-item">
+          <img src="/BD_Proyecto/img/car3.jpg" class="d-block w-100" alt="Cardio Training">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span the="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <footer class="footer py-3 bg-dark">
+    <div class="container text-center">
+      <span class="text-muted">© 2024 Reserved</span>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JavaScript Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
