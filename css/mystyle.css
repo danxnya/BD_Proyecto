@@ -1,14 +1,24 @@
-
-
 body {
-  background-color: #121212;
-  color: #fff;
+  background-color: #ffffff;
+  color: #161616;
 }
 
+.navbar {
+  background-color: #ffffff;
+  border: 1px solid #d2d2d2;
+}
+
+.portal {
+  background-color: rgb(22, 89, 190)
+}
 
 .navbar-brand {
   font-weight: bold;
   color: #ffffff;
+}
+
+.navbar-brand:hover {
+  color: #dfdfdf;
 }
 
 .container {
@@ -17,20 +27,22 @@ body {
 
 fieldset {
   margin-bottom: 20px;
-  border: 1px solid #3f3f3f;
+  border: 1px solid #d2d2d2;
   border-radius: 6px;
   padding: 20px;
 }
 
 .bubble {
-  background-color: #282828;
+  background-color: #ffffff;
+  border: 1px solid d2d2d2;
   border-radius: 7px;
   padding: 20px;
   margin-bottom: 20px;
 }
 
 .bubbleH {
-  background-color: #282828;
+  background-color: #ffffff;
+  border: 1px solid #d2d2d2;
   border-radius: 7px;
   padding: 20px;
   margin: 20px 0px 40px 40px;
@@ -44,14 +56,14 @@ fieldset {
   color: #fff;
 }
 .form-control {
-  background-color: #282828;
-  border-color: #282828;
-  color: #fff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
 }
 .form-control:focus {
-  border-color: #282828;
-  background-color: #282828;
-  color: #fff;
+  border-color: #ffffff;
+  background-color: #ffffff;
+  color: #161616;
 }
 
 .placesearch {
@@ -59,24 +71,24 @@ fieldset {
 }
 .placesearch:focus {
   background-color: #ffffff;
-  color: #000000;
+  color: #bebebe;
 }
 
 .btn {
-  background-color: #a688fa;
-  border-color: #a688fa;
-  color: #000000;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #f8f8f8;
 }
 .btn:hover {
-  background-color: #372e4c;
-  border-color: #372e4c;
+  background-color: #073c8a;
+  border-color: #073c8a;
   color: #fff;
 }
 
 .me-2 {
   background-color: #fffefe;
   border-color: #ffffff;
-  color: #fff;
+  color: #161616;
 }
 
 .body {
@@ -88,38 +100,17 @@ fieldset {
   color: #999; /* Puedes ajustar el color según tus preferencias */
 }
 
-.bg-dark {
-  background-color: #121212 !important;
-}
-
-.bg {
-  background-color: #372e4c;
-}
 
 .logo {
   margin-right: 20px; /* Ajusta el valor según la separación deseada */
 }
 
-/* Colores de los enlaces de navegación */
-.nav-link {
-  color: #ffffff !important;
-}
 
-/* Fondo de los submenús */
-.dropdown-menu {
-  background-color: #121212 !important;
-}
+.table {
+  /* centrar etxto de forma vertical */
+  vertical-align: middle;
 
-/* Colores de los ítems del dropdown */
-.dropdown-item {
-  background-color: #121212 !important;
-}
+  /* centrar texto de forma horizontal */
+  text-align: center;
 
-/* Colores específicos para links en el dropdown */
-.dropdown-item-ipn {
-  color: #952f57 !important;
-}
-
-.dropdown-item-escom {
-  color: rgb(64, 98, 150) !important;
 }

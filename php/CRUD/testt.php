@@ -5,7 +5,8 @@
     <title>CRUD Application</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/BD_PROYECTO/css/login.css">
+    <link rel="stylesheet" href="/BD_Proyecto/css/login.css">
+
 </head>
 <body>
     <div class="container mt-3">
@@ -28,7 +29,7 @@
                     <th>Contraseña</th>
                 </tr>
             </thead>
-            <tbody style="color:white">
+            <tbody>
                 <?php
                 // Conexión a la base de datos PostgreSQL
                 $config = include("config.php");

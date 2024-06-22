@@ -1,0 +1,111 @@
+body {
+  background-color: #ffffff;
+  color: #161616;
+}
+
+.navbar {
+  background-color: #ffffff;
+  border: 1px solid #d2d2d2;
+}
+
+  
+  .navbar-brand {
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .container {
+    padding-top: 0px;
+  }
+  
+  fieldset {
+    margin-bottom: 20px;
+    border: 1px solid #d2d2d2;
+    border-radius: 6px;
+    padding: 20px;
+  }
+  
+  .bubble {
+    background-color: #282828;
+    border-radius: 7px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .bubbleH {
+    background-color: #282828;
+    border-radius: 7px;
+    padding: 20px;
+    margin: 20px 0px 40px 40px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    color: #161616;
+  }
+  .form-control {
+    background-color: #ffffff;
+    border-color: #c5c5c5;
+    color: #161616;
+  }
+  .form-control:focus {
+    border-color: #c5c5c5;
+    background-color: #ffffff;
+    color: #161616;
+  }
+  
+  .placesearch {
+    background-color: #ffffff;
+  }
+  .placesearch:focus {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .btn {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #f8f8f8;
+  }
+  .btn:hover {
+    background-color: #073c8a;
+    border-color: #073c8a;
+  }
+  
+  .me-2 {
+    background-color: #fffefe;
+    border-color: #ffffff;
+    color: #fff;
+  }
+  
+  .body {
+    padding-top: 40px;
+  }
+  
+  /* Cambiar el color del placeholder del campo de correo */
+  #correo::placeholder {
+    color: #727272; /* Puedes ajustar el color según tus preferencias */
+  }
+  
+  .logo {
+    margin-right: 20px; /* Ajusta el valor según la separación deseada */
+  }
+  
+
+  .list {
+    background-color: rgb(206, 99, 99); 
+    border: 1px solid rgb(206, 99, 99); 
+    color: white;
+  }
+
+  .list:hover {
+    background-color: rgb(143, 72, 72); 
+    border: 1px solid rgb(143, 72, 72); 
+    color: white;
+  }
+
+  td {
+    color: #535353;
+  }

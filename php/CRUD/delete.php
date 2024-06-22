@@ -5,7 +5,7 @@
     <title>Eliminar Usuario</title>
     <!-- Bootstrap CSS para mejorar el estilo -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/BD_PROYECTO/css/mystyle.css">
+    <link rel="stylesheet" href="/BD_Proyecto/css/login.css">
 </head>
 <body>
     <div class="container mt-5">

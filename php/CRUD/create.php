@@ -5,7 +5,7 @@
     <title>Agregar Usuario</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/BD_PROYECTO/css/mystyle.css">
+    <link rel="stylesheet" href="/BD_Proyecto/css/login.css">
 </head>
 <body>
     <div class="container mt-3" style="max-width: 600px;"> <!-- Reducir el ancho máximo aquí -->
@@ -50,7 +50,6 @@
         </form>
     </div>
 
-    <!-- Bootstrap Validation Script -->
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
@@ -78,25 +77,11 @@
 
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Conexión a la base de datos PostgreSQL
-$config = include("config.php");
-$host = $config['db_host'];
-$user = $config['db_user'];
-$password = $config['db_password'];
-$dbname = $config['db_name'];
-$port = 5432;
+        // Incluir archivo de conexión a la base de datos
+        require_once "config.php";
+        $conn = include("verificar.php");
+        
 
-// String de conexión
-$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password";
-
-try {
-    $conn = new PDO($dsn);
-    if ($conn) {
-        echo "Conectado a la base de datos $dbname con éxito!";
-    }
-} catch (PDOException $e) {
-    echo $e->getMessage();
-}
         $nombre = $_POST['nombre'];
         $correo = $_POST['correo'];
         $telefono = $_POST['telefono'];

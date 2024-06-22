@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagrama de Entidad-Relación Avanzado con GoJS</title>
+    <script src="https://unpkg.com/gojs/release/go.js"></script>
+    <style>
+        body {
+        margin: 0; 
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        }
+      #myDiagramDiv {
+        width: 100%;
+        height: 1000px;
+        border: 1px solid rgb(255, 255, 255);
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myDiagramDiv"></div>
+    <script>
+        function init() {
+            var $ = go.GraphObject.make;
+    
+            var myDiagram = $(go.Diagram, "myDiagramDiv", {
+                "undoManager.isEnabled": true,
+                layout: $(go.ForceDirectedLayout),
+                initialContentAlignment: go.Spot.Center
+            });
+    
+            // Plantilla para los nodos
+            myDiagram.nodeTemplate = $(
+                go.Node, "Spot", 
+                {
+                    locationSpot: go.Spot.Center,
+                    fromSpot: go.Spot.AllSides, 
+                    toSpot: go.Spot.AllSides,
+                    cursor: "pointer"
+                },
+                $(go.Panel, "Auto",
+                    $(go.Shape, "RoundedRectangle",  // Define la forma general del nodo
+                        {
+                            name: "SHAPE", fill: "black", strokeWidth: 2,
+                            stroke: null,
+                            fromLinkable: true, toLinkable: true
+                        },
+                        new go.Binding("fill", "color")
+                    ),
+                    $(go.Panel, "Vertical",
+                        // Titulo del nodo
+                        $(go.TextBlock,
+                            {
+                                font: "bold 14px sans-serif",
+                                stroke: '#333',
+                                margin: 8,
+                                alignment: go.Spot.Top,
+                                alignmentFocus: go.Spot.Bottom
+                            },
+                            new go.Binding("text", "name")
+                        ),
+                        // Detalles del nodo que se pueden expandir
+                        $(go.TextBlock,
+                            {
+                                name: "DETAILS_BLOCK",  // Asigna el nombre aquí para referenciarlo más tarde
+                                font: "bold 10px sans-serif",
+                                stroke: '#333',
+                                margin: 8,
+                                visible: false,  // Inicialmente no visible
+                                alignment: go.Spot.Bottom,
+                                alignmentFocus: go.Spot.Top
+                            },
+                            new go.Binding("text", "details"),
+                            new go.Binding("visible", "expanded")  // Controla la visibilidad con la propiedad 'expanded'
+                        )
+                    )
+                ),
+                // Botón para expandir/colapsar
+                $("Button",
+                    {
+                        alignment: go.Spot.Bottom,
+                        click: function(e, obj) {  // Define la acción al clickear el botón
+                            var node = obj.part;
+                            var block = node.findObject("DETAILS_BLOCK");  // Encuentra el bloque de detalles correctamente ahora
+                            if (block) {
+                                block.visible = !block.visible;  // Cambia la visibilidad
+                            }
+                        }
+                    },
+                    $(go.TextBlock, "+")  // Texto del botón
+                )
+            );
+
+            // Plantilla para los enlaces
+            myDiagram.linkTemplate = $(go.Link, 
+                {
+                    selectionAdorned: true,
+                    layerName: 'Foreground',
+                    reshapable: true,
+                    routing: go.Routing.AvoidsNodes,
+                    corner: 5,
+                    curve: go.Curve.JumpOver
+                },
+                $(go.Shape, // Forma del enlace
+                    { stroke: '#fff', strokeWidth: 3 },
+                    new go.ThemeBinding('stroke', 'link')
+                ),
+                $(go.Shape, // Flecha al final del enlace
+                    { toArrow: "BackwardOpenTriangle", scale: 2, fill: "black", stroke: "black" }
+                ),
+                $(go.TextBlock, 
+                    {
+                        textAlign: 'center',
+                        font: 'bold 14px sans-serif',
+                        stroke: 'black',
+                        segmentIndex: 0,
+                        segmentOffset: new go.Point(NaN, NaN),
+                        segmentOrientation: go.Orientation.Upright
+                    },
+                    new go.Binding('text', 'text'),
+                    new go.ThemeBinding('stroke', 'text')
+                ),
+                $(go.TextBlock,
+                    {
+                        textAlign: 'center',
+                        font: 'bold 14px sans-serif',
+                        stroke: 'black',
+                        segmentIndex: -1,
+                        segmentOffset: new go.Point(NaN, NaN),
+                        segmentOrientation: go.Orientation.Upright
+                    },
+                    new go.Binding('text', 'toText'),
+                    new go.ThemeBinding('stroke', 'text')
+                )
+            );
+        var nodeDataArray = [
+          {
+            key: 1,
+            name: "PERSONA",
+            details:
+              "id_persona\nnombre\napellido_materno\napellido_paterno\ncorreo\ncontrasena\ntelefono\nmunicipio\ncalle\ncp",
+            color: "#dddddd",
+            isExpanded: false,
+          },
+          {
+            key: 2,
+            name: "USUARIO",
+            details: "id_usuario\nid_persona\nsuscripcion",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+          {
+            key: 3,
+            name: "TRABAJADOR",
+            details: "id_trabajador\narea\nid_persona",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+          {
+            key: 4,
+            name: "TURNO",
+            details: "id_turno\nid_trabajador\nturno",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+          {
+            key: 5,
+            name: "SUSCRIPCIÓN",
+            details:
+              "id_suscripcion\nid_usuario\nprecio\nfecha_inicio\nfecha_fin",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+          {
+            key: 6,
+            name: "ÁREA",
+            details: "id_area\nnombre\ndescripción\nid_trabajador",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+          {
+            key: 7,
+            name: "SERVICIOS",
+            details:
+              "id_servicio\nnombre\ndescripción\narea\nhora_inicio\nhora_fin\nid_area",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+          {
+            key: 8,
+            name: "EQUIPO",
+            details: "id_equipo\nnombre\ndescripción\nid_servicio",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+          {
+            key: 9,
+            name: "INSUMOS",
+            details: "id_insumos\nnombre\ncantidad\ndescripción\nid_servicio",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+          {
+            key: 10,
+            name: "PROVEEDOR",
+            details:
+              "id_proveedor\nnombre\ntelefono\ncorreo\nid_insumo\nid_equipo",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+          {
+            key: 11,
+            name: "ÁREA TRABAJADOR",
+            details: "id_trabajador\nid_area",
+            color: "#a688fa",
+            isExpanded: false,
+          },
+        ];
+        // otros nodos aquí...
+
+        var linkDataArray = [
+          { from: 1, to: 2 },
+          { from: 1, to: 3 },
+          { from: 2, to: 5 },
+          { from: 3, to: 4 },
+          { from: 3, to: 11 },
+          { from: 6, to: 7 },
+          { from: 7, to: 9 },
+          { from: 7, to: 8 },
+          { from: 7, to: 7 },
+          { from: 8, to: 10 },
+          { from: 10, to: 9 },
+          { from: 6, to: 11 },
+        ];
+
+        myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+      }
+
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>
