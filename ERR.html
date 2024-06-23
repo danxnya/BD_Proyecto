@@ -210,13 +210,7 @@
             color: "#a688fa",
             isExpanded: false,
           },
-          {
-            key: 11,
-            name: "ÁREA TRABAJADOR",
-            details: "[pk] id_trabajador \n  [fk] id_area",
-            color: "#a688fa",
-            isExpanded: false,
-          },
+
         ];
         // otros nodos aquí...
 
@@ -228,14 +222,12 @@
 
           { from: 3, to: 6 },
 
-          { from: 3, to: 11 },
           { from: 6, to: 7 },
           { from: 7, to: 9 },
           { from: 7, to: 8 },
           { from: 7, to: 7 },
           { from: 8, to: 10 },
           { from: 9, to: 10 },
-          { from: 6, to: 11 },
         ];
 
         myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);

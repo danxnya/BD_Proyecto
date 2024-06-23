@@ -9,8 +9,9 @@ const expresiones = {
   apellido_paterno: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
   apellido_materno: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
   telefono: /^\d{10}$/, // 10 numeros.
-  // La direccion separada por comas, ejemplo, Municipio, calle, cp
-  direccion: /^[a-zA-ZÀ-ÿ\s]{1,40},[a-zA-ZÀ-ÿ\s]{1,40},[a-zA-ZÀ-ÿ\s]{1,40}$/,
+  municipio: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+  calle: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+  cp: /^\d{5}$/, // 5 numeros.
 };
 
 const campos = {
@@ -20,7 +21,9 @@ const campos = {
   apellido_paterno: false,
   apellido_materno: false,
   telefono: false,
-  direccion: false,
+  municipio: false,
+  calle: false,
+  cp: false,
 };
 
 const validarFormulario = (e) => {
@@ -43,8 +46,14 @@ const validarFormulario = (e) => {
     case "telefono":
       validarCampo(expresiones.telefono, e.target, "telefono");
       break;
-    case "direccion":
-      validarCampo(expresiones.direccion, e.target, "direccion");
+    case "municipio":
+      validarCampo(expresiones.municipio, e.target, "municipio");
+      break;
+    case "calle":
+      validarCampo(expresiones.calle, e.target, "calle");
+      break;
+    case "cp":
+      validarCampo(expresiones.cp, e.target, "cp");
       break;
   }
 };
@@ -75,7 +84,9 @@ loginForm.addEventListener("submit", (e) => {
     campos.apellido_paterno &&
     campos.apellido_materno &&
     campos.telefono &&
-    campos.direccion
+    campos.municipio &&
+    campos.calle &&
+    campos.cp
   ) {
     loginForm.submit();
   } else {

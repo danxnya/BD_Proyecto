@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Eliminar Persona</title>
+    <title>Eliminar Usuario</title>
     <!-- Bootstrap CSS para mejorar el estilo -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/BD_Proyecto/css/login.css">
@@ -10,12 +10,12 @@
 <body>
     <div class="container mt-5">
         <h1>Eliminar Usuario</h1>
-        <form action="delete.php" method="post">
+        <form action="deleteUser.php" method="post">
             <div class="form-group">
                 <label for="id">ID a borrar:</label>
                 <input type="number" class="form-control" name="id" id="id" required>
             </div>
-            <button type="submit" class="btn btn-danger">Eliminar Persona</button>
+            <button type="submit" class="btn btn-danger">Eliminar Usuario</button>
         </form>
 
         <?php
@@ -27,7 +27,7 @@
             try {
                 $conn = new PDO($dsn);
                 $id = $_POST['id'];
-                $query = "DELETE FROM persona WHERE id_persona = ?";
+                $query = "DELETE FROM usuario WHERE id_usuario = ?";
 
                 $stmt = $conn->prepare($query);
                 $stmt->execute([$id]);

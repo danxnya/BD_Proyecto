@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Eliminar Persona</title>
+    <title>Eliminar Trabajador</title>
     <!-- Bootstrap CSS para mejorar el estilo -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/BD_Proyecto/css/login.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Eliminar Usuario</h1>
-        <form action="delete.php" method="post">
+        <h1>Eliminar Trabajador</h1>
+        <form action="deleteWorker.php" method="post">
             <div class="form-group">
                 <label for="id">ID a borrar:</label>
                 <input type="number" class="form-control" name="id" id="id" required>
             </div>
-            <button type="submit" class="btn btn-danger">Eliminar Persona</button>
+            <button type="submit" class="btn btn-danger">Eliminar Trabajador</button>
         </form>
 
         <?php
@@ -27,12 +27,15 @@
             try {
                 $conn = new PDO($dsn);
                 $id = $_POST['id'];
-                $query = "DELETE FROM persona WHERE id_persona = ?";
-
+                $query = "DELETE FROM trabajador_area WHERE id_trabajador = ?";
+                $query2 = "DELETE FROM trabajador WHERE id_trabajador = ?";
+                
                 $stmt = $conn->prepare($query);
                 $stmt->execute([$id]);
+                $stmt2 = $conn->prepare($query2);
+                $stmt2->execute([$id]);
 
-                echo '<div class="alert alert-success" role="alert">Usuario eliminado con éxito.</div>';
+                echo '<div class="alert alert-success" role="alert">Trabajador eliminado con éxito.</div>';
                 header("refresh:3;url=testt.php"); // Redireccionar después de 3 segundos a la página principal
             } catch (PDOException $e) {
                 echo '<div class="alert alert-danger" role="alert">' . $e->getMessage() . '</div>';

@@ -41,11 +41,21 @@
                 <input type="text" class="form-control form-control-sm" name="telefono" id="telefono" required>
                 <div class="invalid-feedback">Este campo es obligatorio.</div>
             </div>
-            <div class="form-group">
-                <label for="direccion">Dirección:</label>
-                <input type="text" class="form-control form-control-sm" name="direccion" id="direccion" required>
-                <div class="invalid-feedback">Este campo es obligatorio.</div>
-            </div>
+            <div class="formulario_campo form-group" id="formulario_municipio">
+              <label for="municipio" class="form-label">Municipio: </label>
+              <i class="formulario__validacion bi bi-x-circle-fill"></i>
+              <input type="municicpio" class="form-control" name="municipio" id="municipio" placeholder="Benito Juarez"required />
+          </div>
+          <div class="formulario_campo form-group" id="formulario_calle">
+              <label for="calle" class="form-label">Calle: </label>
+              <i class="formulario__validacion bi bi-x-circle-fill"></i>
+              <input type="calle" class="form-control" name="calle" id="calle" placeholder="Calle los linrios"required />
+          </div>
+          <div class="formulario_campo form-group" id="formulario_cp">
+              <label for="cp" class="form-label">CP: </label>
+              <i class="formulario__validacion bi bi-x-circle-fill"></i>
+              <input type="cp" class="form-control" name="cp" id="cp" placeholder="00000"required />
+          </div>
             <button type="submit" class="btn btn-primary btn-sm">Guardar</button> <!-- Smaller button -->
         </form>
     </div>
@@ -85,16 +95,17 @@
         $nombre = $_POST['nombre'];
         $correo = $_POST['correo'];
         $telefono = $_POST['telefono'];
-        $direccion = $_POST['direccion'];
+        $municiopio = $_POST['municipio'];
+        $calle = $_POST['calle'];
+        $cp = $_POST['cp'];
         $contrasena = $_POST['contrasena'];
         $apellido_materno = $_POST['apellido_materno'];
         $apellido_paterno = $_POST['apellido_paterno'];
 
-        $query = "INSERT INTO persona (nombre, correo, telefono, direccion, contrasena, apellido_materno, apellido_paterno) VALUES(?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO persona (nombre, correo, telefono, municipio, calle, cp, contrasena, apellido_materno, apellido_paterno) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
-        $stmt->execute([$nombre, $correo, $telefono, $direccion, $contrasena, $apellido_materno, $apellido_paterno]);
+        $stmt->execute([$nombre, $correo, $telefono, $municiopio, $calle, $cp, $contrasena, $apellido_materno, $apellido_paterno]);
 
         echo "Usuario añadido con éxito.";
-        header("Location: /BD_Proyecto/php/CRUD/testt.php"); // Redireccionar de vuelta a la página principal
     }
 ?>

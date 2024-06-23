@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Solicitar ID de Usuario</title>
+    <title>Solicitar ID de usuarios</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/BD_PROYECTO/css/login.css">
@@ -10,17 +10,17 @@
 <body>
     <div class="container mt-3" style="max-width: 600px;">
         <h1 class="mb-4">Solicitar ID de Usuario para Actualización</h1>
-        <form action="update.php" method="post" class="mb-4">
+        <form action="updateUser.php" method="post" class="smb-4">
             <div class="form-group">
-                <label for="id_persona">ID del Usuario:</label>
-                <input type="text" class="form-control" name="id_persona" id="id_persona" required>
+                <label for="id_usuario">ID del Usuarioa:</label>
+                <input type="text" class="form-control" name="id_usuario" id="id_usuario" required>
             </div>
             <button type="submit" class="btn btn-primary">Buscar Usuario</button>
         </form>
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $id = $_POST['id_persona'];
+            $id = $_POST['id_usuario'];
 
             // Conexión a la base de datos PostgreSQL
             $config = include("config.php");
@@ -28,15 +28,15 @@
 
             try {
                 $conn = new PDO($dsn);
-                $query = "SELECT * FROM persona WHERE id_persona = ?";
+                $query = "SELECT * FROM usuario WHERE id_usuario = ?";
                 $stmt = $conn->prepare($query);
                 $stmt->execute([$id]);
                 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if ($user) {
                     echo '<div class="mt-4">';
-                    echo '<h2>Usuario encontrado:</h2>';
-                    echo '<form action="updateTRUE.php" method="post" class="needs-validation" novalidate>';
+                    echo '<h2>Persona encontrado:</h2>';
+                    echo '<form action="updateTRUEUSER.php" method="post" class="needs-validation" novalidate>';
                     foreach ($user as $key => $value) {
                         echo '<div class="form-group">';
                         echo '<label for="' . htmlspecialchars($key) . '">' . htmlspecialchars(ucfirst(str_replace('_', ' ', $key))) . ':</label>';

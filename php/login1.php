@@ -104,10 +104,20 @@
               <input type="number" class="form-control" name="telefono" id="telefono" required />
 
             </div>
-            <div class="formulario_campo form-group" id="formulario_direccion">
-              <label for="direccion" class="form-label">Direccion: </label>
+            <div class="formulario_campo form-group" id="formulario_municipio">
+              <label for="municipio" class="form-label">Municipio: </label>
               <i class="formulario__validacion bi bi-x-circle-fill"></i>
-              <input type="direccion" class="form-control" name="direccion" id="direccion" placeholder="Municipio, calle, cp"required />
+              <input type="municicpio" class="form-control" name="municipio" id="municipio" placeholder="Benito Juarez"required />
+          </div>
+          <div class="formulario_campo form-group" id="formulario_calle">
+              <label for="calle" class="form-label">Calle: </label>
+              <i class="formulario__validacion bi bi-x-circle-fill"></i>
+              <input type="calle" class="form-control" name="calle" id="calle" placeholder="Calle los linrios"required />
+          </div>
+          <div class="formulario_campo form-group" id="formulario_cp">
+              <label for="cp" class="form-label">CP: </label>
+              <i class="formulario__validacion bi bi-x-circle-fill"></i>
+              <input type="cp" class="form-control" name="cp" id="cp" placeholder="00000"required />
           </div>
           
             <input type="submit" class="btn btn-primary" value="Enviar" />
@@ -178,10 +188,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $apellido_materno = $_POST['apellido_materno'];
     $telefono =$_POST['telefono'];
     $contrasena =$_POST['contrasena'];
-    $direccion = $_POST['direccion'];
+    $municipio = $_POST['municipio'];
+    $calle = $_POST['calle'];
+    $cp = $_POST['cp'];
 
     // Preparar la inserción de datos
-    $sql = "INSERT INTO persona (correo, contrasena, nombre, apellido_paterno, apellido_materno, telefono, direccion) VALUES (:correo, :contrasena, :nombre, :apellido_paterno, :apellido_materno, :telefono, :direccion)";
+    $sql = "INSERT INTO persona (correo, contrasena, nombre, apellido_paterno, apellido_materno, telefono, municipio, calle, cp) VALUES (:correo, :contrasena, :nombre, :apellido_paterno, :apellido_materno, :telefono, :municipio, :calle, :cp)";
 
     $stmt = $conn->prepare($sql);
 
@@ -192,7 +204,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':apellido_materno', $apellido_materno);
     $stmt->bindParam(':telefono', $telefono); // Vincular como entero
     $stmt->bindParam(':contrasena', $contrasena);
-    $stmt->bindParam(':direccion', $direccion);
+    $stmt->bindParam(':municipio', $municipio);
+    $stmt->bindParam(':calle', $calle);
+    $stmt->bindParam(':cp', $cp);
 
     // Ejecutar la consulta
     if ($stmt->execute()) {
@@ -204,7 +218,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Apellido Paterno: $apellido_paterno<br>";
         echo "Apellido Materno: $apellido_materno<br>";
         echo "Telefono: $telefono<br>";
-        echo "Direccion: $direccion<br>";
+        echo "Municipio: $municipio<br>";
+        echo "Calle: $calle<br>";
+        echo "CP: $cp<br>";
 
     } else {
         echo "Error al registrar el usuario.";
